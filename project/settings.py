@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -122,6 +123,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR , 'static' , 'staticroot')
+
 MEDIA_URL = '/media/'
 
 # Default primary key field type
@@ -144,3 +147,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'hwauie23@gmail.com'
 EMAIL_HOST_PASSWORD = 'tensqazsmwpgjkid'
 EMAIL_USE_TLS = True
+
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
